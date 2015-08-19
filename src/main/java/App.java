@@ -36,9 +36,9 @@ public class App {
     HashMap<String, Object> model = new HashMap<String, Object>();
 
     String cdTitle = request.queryParams("cdTitle");
-    // String cdArtist = request.queryParams("cdArtist");
+    String cdArtist = request.queryParams("cdArtist");
 
-    CDOrganizer newCD = new CDOrganizer (cdTitle);
+    CDOrganizer newCD = new CDOrganizer (cdTitle, cdArtist);
 
     model.put("template", "templates/success.vtl");
     return new ModelAndView(model, layout);
@@ -50,8 +50,6 @@ public class App {
     CDOrganizer cd = CDOrganizer.find(Integer.parseInt(request.params(":id")));
 
     model.put("cd", cd);
-    // model.put("cdTitle", cdTitle);
-    // model.put("cdArtist", cdArtist);
     model.put("template", "templates/cd.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());

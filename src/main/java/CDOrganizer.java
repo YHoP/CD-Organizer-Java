@@ -7,20 +7,19 @@ public class CDOrganizer {
   private static ArrayList<CDOrganizer> instances = new ArrayList<CDOrganizer>();
   private int mId;
   private String mCDTitle;
+  private String mCDArtist;
 
 
-  public CDOrganizer(String cdTitle) {
+  public CDOrganizer(String cdTitle, String cdArtist) {
     mCDTitle = cdTitle;
+    mCDArtist = cdArtist;
     instances.add(this);
     mId = instances.size();
   }
 
-  // public ArrayList<CDOrganizer> getCDs() {
-  //   return mCDs;
-  // }
-
   public String getInfo() {
-    return mCDTitle;
+    String cdInfo = "CD Title: " + mCDTitle + "<br>CD Artist: " + mCDArtist;
+    return cdInfo;
   }
 
   public int getId() {

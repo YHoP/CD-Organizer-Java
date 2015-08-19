@@ -1,7 +1,7 @@
 <h1>All CDs</h1>
 <ul>
 #foreach ($cd in $cdList)
-  <a href="/cdList/$cd.getId()">$cd.getInfo()</a><br>
+  <p><a href="/cdList/$cd.getId()">$cd.getInfo()</a></p>
 #end
 </ul>
 <a href="/cdList/new">Add New CD</a>
