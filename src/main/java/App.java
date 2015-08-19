@@ -11,7 +11,7 @@ public class App {
 
   get("/", (request, response) -> {
     HashMap<String, Object> model = new HashMap<String, Object>();
-    model.put("cdList", request.session().attribute("cdList"));
+    // model.put("cdList", request.session().attribute("cdList"));
 
     model.put("template", "templates/index.vtl");
     return new ModelAndView(model, layout);
@@ -27,31 +27,25 @@ public class App {
 
   get("cdList/new", (request, response) -> {
     HashMap<String, Object> model = new HashMap<String, Object>();
+
     model.put("template", "templates/cd-form.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 
   post("/cdList", (request, response) -> {
     HashMap<String, Object> model = new HashMap<String, Object>();
-    // ArrayList<Task> tasks = request.session().attribute("tasks");
-    // if (tasks == null) {
-    //   tasks = new ArrayList<Task>();
-    //   request.session().attribute("tasks", tasks);
-    // }
-    // String cdTitle = request.queryParams("cdTitle");
-    // String cdArtist = request.queryParams("cdArtist");
-    String musicType = request.queryParams("musicType");
-    // CDOrganizer newCDOrganizer = new CDOrganizer(musicType);
 
-    CDInfo newCD = new CDInfo (cdTitle, cdArtist);
-    // tasks.add(newTask);
+    String cdTitle = request.queryParams("cdTitle");
+    // String cdArtist = request.queryParams("cdArtist");
+
+    CDOrganizer newCD = new CDOrganizer (cdTitle);
+
     model.put("template", "templates/success.vtl");
     return new ModelAndView(model, layout);
   },  new VelocityTemplateEngine());
 
   get("/cdList/:id", (request, response) -> {
     HashMap<String, Object> model = new HashMap<String, Object>();
-
 
     CDOrganizer cd = CDOrganizer.find(Integer.parseInt(request.params(":id")));
 
