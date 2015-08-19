@@ -1,8 +1,9 @@
-<h1>Success!</h1>
-
-<h3>Your CD infomation has been saved.</h3>
-<br>
-<!-- <a href ="/">Go Back</a><br> -->
+<h1>All Artists</h1>
+<ul>
+#foreach ($cd in $cdList)
+  <p><a href="/cdList/$cd.getId()">$cd.getArtist()</a></p>
+#end
+</ul>
 <br>
 <a href="/cdList/new">Add new CD</a>
 <br>

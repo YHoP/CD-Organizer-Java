@@ -25,6 +25,14 @@ public class App {
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 
+  get("/cdArtist", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    // get all the CD info from our class, and put it into webpage
+    model.put("cdList", CDOrganizer.all());
+    model.put("template", "templates/cdArtist.vtl");
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
+
   get("cdList/new", (request, response) -> {
     HashMap<String, Object> model = new HashMap<String, Object>();
 

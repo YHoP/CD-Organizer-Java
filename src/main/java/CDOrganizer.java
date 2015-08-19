@@ -17,6 +17,14 @@ public class CDOrganizer {
     mId = instances.size();
   }
 
+  public String getTitle(){
+    return mCDTitle;
+  }
+
+  public String getArtist(){
+    return mCDArtist;
+  }
+
   public String getInfo() {
     String cdInfo = "CD Title: " + mCDTitle + "<br>CD Artist: " + mCDArtist;
     return cdInfo;
