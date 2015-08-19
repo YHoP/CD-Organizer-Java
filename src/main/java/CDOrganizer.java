@@ -45,7 +45,7 @@ public class CDOrganizer {
       return null;
     }
   }
-  
+
   public static void clear() {
     instances.clear();
   }
