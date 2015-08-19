@@ -38,9 +38,12 @@ public class App {
     //   tasks = new ArrayList<Task>();
     //   request.session().attribute("tasks", tasks);
     // }
-    String cdTitle = request.queryParams("cdTitle");
-    String cdArtist = request.queryParams("cdArtist");
-    CDOrganizer newCDOrganizer = new CDOrganizer(cdTitle, cdArtist);
+    // String cdTitle = request.queryParams("cdTitle");
+    // String cdArtist = request.queryParams("cdArtist");
+    String musicType = request.queryParams("musicType");
+    // CDOrganizer newCDOrganizer = new CDOrganizer(musicType);
+
+    CDInfo newCD = new CDInfo (cdTitle, cdArtist);
     // tasks.add(newTask);
     model.put("template", "templates/success.vtl");
     return new ModelAndView(model, layout);
