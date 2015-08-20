@@ -1,7 +1,7 @@
 <h1>All Artists</h1>
 <ul>
 #foreach ($cd in $cdList)
-  <p><a href="/cdList/$cd.getId()">$cd.getArtist()</a></p>
+  <p><a href="/artist/$cd.getArtist()">$cd.getArtist()</a></p>
 #end
 </ul>
 <br>

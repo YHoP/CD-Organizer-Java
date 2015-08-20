@@ -46,6 +46,15 @@ public class CDOrganizer {
     }
   }
 
+  public static CDOrganizer findArtist(String artist){
+    for(int i = 0; i <= instances.size(); i++){
+      if( (instances.get(i)).contains(artist) ){
+        return instances.get(i);
+      }
+    }
+    return null;
+  }
+
   public static void clear() {
     instances.clear();
   }

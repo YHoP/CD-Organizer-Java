@@ -27,7 +27,7 @@ public class App {
 
   get("/cdArtist", (request, response) -> {
     HashMap<String, Object> model = new HashMap<String, Object>();
-    // get all the CD info from our class, and put it into webpage
+    // get all the Artists info from our class, and put it into webpage
     model.put("cdList", CDOrganizer.all());
     model.put("template", "templates/cdArtist.vtl");
     return new ModelAndView(model, layout);
@@ -59,6 +59,18 @@ public class App {
 
     model.put("cd", cd);
     model.put("template", "templates/cd.vtl");
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
+
+  get("/artist/:name", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+
+    String artistName = request.params(":name");
+    CDOrganizer artist = CDOrganizer.findArtist(artistName);
+
+    model.put("artistName", artistName);
+    model.put("artist", artist);
+    model.put("template", "templates/artist.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 

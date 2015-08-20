@@ -1,0 +1,19 @@
+#if ($artistName)
+
+  <h1>$artistName</h1>
+
+  <h3>$artist.getInfo()</h3>
+  <!-- #foreach ($artist in $cdList)
+    <p><a href="#">$artist.getTitle()</a></p>
+  #end -->
+
+#else
+  <h1> CD not found </h1>
+#end
+
+<br>
+<a href="/cdList/new">Add new CD</a>
+<br>
+<a href="/cdList">View all CDs</a>
+<br>
+<a href="/cdArtist">View all Artists</a>
